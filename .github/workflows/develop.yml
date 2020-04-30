@@ -29,13 +29,13 @@ jobs:
       - run: yarn run generate:dev --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
-      # Please uncomment out followings if use gh-pages or netlify on your repository
-      # - name: deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./dist
-      #     publish_branch: dev-pages
+      #Please uncomment out followings if use gh-pages or netlify on your repository
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: ./dist
+         publish_branch: dev-pages
 
       - name: deploy to Firebase Hosting
         uses: w9jds/firebase-action@master
